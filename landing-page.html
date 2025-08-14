@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 anos com você 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-text {
+            color: #495057;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .surprise-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(238, 90, 36, 0.3);
+            font-family: inherit;
+        }
+
+        .surprise-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(238, 90, 36, 0.4);
+            background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff6b6b;
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10%, 90% {
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-10vh) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+                max-width: 95%;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+            
+            .main-text {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 35px;
+                text-align: center;
+            }
+            
+            .surprise-btn {
+                padding: 16px 35px;
+                font-size: 1.2rem;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            
+            .main-text {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 30px;
+            }
+            
+            .surprise-btn {
+                padding: 14px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <h1>3 anos com você 💖</h1>
+        
+        <p class="main-text">
+            Hoje completamos 3 anos de pura alegria ao seu lado.
+                Eu te amo muito, meu amor.
+                Cada momento que vivi com você, nos dias bons e nos dias ruins, nas brigas e nas conquistas, fez tudo valer a pena.
+                Espero que, a cada ano que passe, a gente aprenda mais, cresça juntos e continue construindo essa história linda.
+                Te amo demais🫶🏻💌
+        </p>
+        
+        <button class="surprise-btn" onclick="showSurprise()">
+            Ver a surpresa 💌
+        </button>
+    </div>
+
+    <script>
+        // Criar corações flutuantes
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 6 + 's';
+            heart.style.animationDuration = (Math.random() * 3 + 6) + 's';
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 9000);
+        }
+
+        // Criar corações periodicamente
+        setInterval(createHeart, 800);
+
+        // Função do botão surpresa
+        function showSurprise() {
+            window.location.href = 'surpresa.html';
+        }
+
+        // Criar alguns corações iniciais
+        for(let i = 0; i < 3; i++) {
+            setTimeout(createHeart, i * 300);
+        }
+    </script>
+</body>
+</html>
